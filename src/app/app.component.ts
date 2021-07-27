@@ -15,26 +15,31 @@ import { CountriesService } from './helpers/countries.service';
 export class AppComponent {
   title = 'apollo-angular-sample';
 
+  countries: any;
+
   // Injecting apollo and Countries service
   constructor(private apollo: Apollo, private graphQLService: CountriesService) {}
 
   ngOnInit(){
 
-    // Getting countroes info and logging in the console
+    // Getting the country info by its code
     const obsParams = this.graphQLService.GetCountry<IWebResponse<CountryClass>>();
     // Call back
     const promiseThenParams = (response: IWebResponse<CountryClass>) => {
-      console.log("Got the countries info and below the countries");
+      console.log("Got the countries info and below the countries");    
       console.log(response);
     };
     this.runPromise(obsParams,promiseThenParams);
 
-    // Getting the country info by its code
+       // Getting countroes info and logging in the console
     const obsParams1 = this.graphQLService.GetCountries<IWebResponse<CountryClass[]>>();
     // Call back
     const promiseThenParams1 = (response: IWebResponse<CountryClass[]>) => {
       console.log("Got the country for the provided country code");
       console.log(response);
+
+      // Binding data
+      this.countries = response.countries;
     };
     this.runPromise(obsParams1,promiseThenParams1);
 

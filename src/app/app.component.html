@@ -1,2 +1,19 @@
 <h3>Apollo Sample with Angular</h3>
+<div style="padding: 13px;">
+   <table>
+       <thead>
+           <th>Name</th>
+           <th>Code</th>
+           <th>Currency</th>
+       </thead>
+       <tbody>
+        <tr *ngFor="let country of countries">
+            <td>{{country.name}}</td>
+            <td>{{country.code}}</td>
+            <td>{{country.currency}}</td>
+        </tr>
+       </tbody>
+   </table>
+
+</div>
 
