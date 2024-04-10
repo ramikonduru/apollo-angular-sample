@@ -10,6 +10,7 @@ import { VariableBase } from "../types";
 @Injectable({
     // declares that this service should be created
     // by the root application injector.
+    // Test comment for commit history
     providedIn: 'root',
   })
 
